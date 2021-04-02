@@ -61,38 +61,12 @@ class App extends React.Component {
         this.a1 += this.a1_v;
         this.a2 += this.a2_v;
             
-
-        // console.log(this.x1, this.y1, this.x2, this.y2);
-        // const canvas = this.refs.canvas;
-        // const ctx = canvas.getContext('2d');
-        // ctx.clearRect(0, 0, canvas.width, canvas.height);
-        // ctx.beginPath();
-        // ctx.moveTo(this.x0,this.y0);
-        // ctx.lineTo(this.x0 + this.x1,this.y0 + this.y1);
-        // ctx.stroke();
-        // ctx.closePath();
-        // ctx.beginPath();
-        // ctx.arc(this.x0 + this.x1,this.y0 + this.y1, this.m1, 0, Math.PI*2, true);
-        // ctx.fill();
-        // ctx.moveTo(this.x0 + this.x1,this.y0 + this.y1);
-        // ctx.lineTo(this.x0+this.x2,this.y0+this.y2);
-        // ctx.stroke();
-        // ctx.closePath();
-        // ctx.beginPath();
-        // ctx.arc(this.x0 + this.x2,this.y0+this.y2 , this.m2, 0, Math.PI*2, true);
-        // ctx.fill();
-        // console.log(this.px,this.py);
-        // this.ctx.beginPath();
-        // if(this.px!=-1&&this.py!=-1) this.ctx.moveTo(this.px,this.py);
-        // else this.ctx.moveTo(this.x0+this.x2,this.y0+this.y2);
         this.ctx.lineTo(this.x0+this.x2,this.y0+this.y2);
         this.ctx.stroke();
-        // crx.moveTo(this.x0+this.x2,this.y0+this.y2);
         if(this.px!=-1){
             let w = Math.abs((this.x0+this.x2) - this.px) + Math.abs((this.y0+this.y2) - this.py);
             this.ctx.lineWidth = w/10 + 1;
         }
-        // console.log(w);
         this.cnt++;
         if(this.cnt>1){
             this.ctx.closePath();
@@ -107,8 +81,6 @@ class App extends React.Component {
                 this.B+=3;
             }
             if(this.B>10)this.B -=10;
-            // this.B +=30;if(this.B>255)this.B-=255; 
-            // this.ctx.lineWidth++;
             this.ctx.beginPath();
             this.ctx.moveTo(this.x0+this.x2,this.y0+this.y2);
             this.cnt = 0;
@@ -134,7 +106,9 @@ class App extends React.Component {
 
     render(){
         return (
-            <canvas ref="canvas" width="800" height="500"></canvas>
+            <div style={{width: "100%", height: "100%", display: "grid", placeItems: "center"}}>
+                <canvas ref="canvas" width="800" height="500"></canvas>
+            </div>
         );
     }
 }

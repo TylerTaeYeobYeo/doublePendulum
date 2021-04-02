@@ -6,15 +6,13 @@ module.exports = {
         path: __dirname + '/public/',
         filename: 'bundle.js'
     },
-
     devServer: {
         hot: true,
         inline: true,
-        host: '0.0.0.0',
-        port: 4000,
+        host: 'localhost',
+        port: 8000,
         contentBase: __dirname + '/public/',
     },
-
     module: {
         rules: [
             {
@@ -29,7 +27,6 @@ module.exports = {
             }
         ]
     },
-
     plugins: [
         new webpack.HotModuleReplacementPlugin()
     ]
